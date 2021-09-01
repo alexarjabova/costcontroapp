@@ -76,6 +76,28 @@ public class DBconnection {
     }
         //methods *6 create & select for projects, events, bills
 
+    public static void createProject() {
 
+    }
+
+    public static void selectProjects() {
+
+    }
+
+    public static void createEvent() {
+
+    }
+
+    public static void selectEvents() {
+
+    }
+
+    public static void createBill() {
+
+    }
+
+    public static void selectBills() {
+
+    }
 
 }
