@@ -42,6 +42,7 @@ public class DBconnection {
                 selectEvents();
                 selectBills();
 
+
             }
 
         } catch( SQLException exception ) {
