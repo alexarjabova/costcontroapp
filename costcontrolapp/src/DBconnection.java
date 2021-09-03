@@ -24,8 +24,8 @@ public class DBconnection {
                 statement.execute(sqlStatement);
 
                 // INSERT ROWS in PROJECTS TABLE
-                //statement.execute("INSERT INTO projects (project_name,description, totalFinances) VALUES ('To be a MOM', 'To be a MOM is a project for moms and their children to create closer relations between them', '600')");
-                //statement.execute("INSERT INTO projects (project_name,description, totalFinances) VALUES ('Hearts Melody', 'Hearts Melody is a project for expectant mothers and families with children', '400')");
+                statement.execute("INSERT INTO projects (project_name,description, totalFinances) VALUES ('To be a MOM', 'To be a MOM is a project for moms and their children to create closer relations between them', '600')");
+                statement.execute("INSERT INTO projects (project_name,description, totalFinances) VALUES ('Hearts Melody', 'Hearts Melody is a project for expectant mothers and families with children', '400')");
 
 
                 // CREATING events TABLE
