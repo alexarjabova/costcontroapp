@@ -6,7 +6,7 @@ public class DBconnection {
 
         try {
 
-            String dbUrl = "jdbc:sqlite:costcontrolapp.db";
+            String dbUrl = "jdbc:sqlite:C:\\Users\\User\\IdeaProjects\\costcontroapp\\costcontrolapp.db";
             Connection conn = DriverManager.getConnection(dbUrl);
 
             if( conn != null ) {
@@ -24,13 +24,8 @@ public class DBconnection {
                 statement.execute(sqlStatement);
 
                 // INSERT ROWS in PROJECTS TABLE
-                sqlStatement = "INSERT INTO projects (project_name, description)" +
-                        "values ( ' ' + 'To Be a Mom' + 'Project Description' + 600 )";
-                statement.execute(sqlStatement);
-
-                sqlStatement = "INSERT INTO projects (project_name, description)" +
-                        "values ( ' ' + 'Heart's Melody' + 'Project Description 2' + 400 )";
-                statement.execute(sqlStatement);
+                //statement.execute("INSERT INTO projects (project_name,description, totalFinances) VALUES ('To be a MOM', 'To be a MOM is a project for moms and their children to create closer relations between them', '600')");
+                //statement.execute("INSERT INTO projects (project_name,description, totalFinances) VALUES ('Hearts Melody', 'Hearts Melody is a project for expectant mothers and families with children', '400')");
 
 
                 // CREATING events TABLE
