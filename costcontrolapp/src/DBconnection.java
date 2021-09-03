@@ -37,6 +37,11 @@ public class DBconnection {
                                 "category_name INTEGER NOT NULL)";
                 statement.execute(sqlStatement);
 
+                //SELECT * from
+                selectProjects();
+                selectEvents();
+                selectBills();
+
             }
 
         } catch( SQLException exception ) {
@@ -70,7 +75,20 @@ public class DBconnection {
 
     }
 
-    public static void selectProjects() {
+    public static void selectProjects() throws SQLException {
+        Connection conn = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\User\\IdeaProjects\\ccapp\\ccapp.db");
+        Statement statement = conn.createStatement();
+        String sqlStatement = "SELECT * FROM projects";
+        ResultSet resultSet = statement.executeQuery(sqlStatement);
+
+        while ( resultSet.next() ) {
+            String projectID = resultSet.getString("project_id");
+            String projectName = resultSet.getString("project_name");
+            String description = resultSet.getString("description");
+            int totalFinances = resultSet.getInt("totalFinances");
+
+            System.out.println("Project ID:" + projectID + " Project name: " + projectName + " Description: " + description + " Budget:" + totalFinances);
+        }
 
     }
 
@@ -96,9 +114,22 @@ public class DBconnection {
 
     }
 
-    public static void selectEvents() {
+    public static void selectEvents() throws SQLException {
+        Connection conn = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\User\\IdeaProjects\\ccapp\\ccapp.db");
+        Statement statement = conn.createStatement();
+        String sqlStatement = "SELECT * FROM events";
+        ResultSet resultSet = statement.executeQuery(sqlStatement);
 
+        while ( resultSet.next() ) {
+            String eventsID = resultSet.getString("events_id");
+            String projectName = resultSet.getString("project_event");
+            String eventName = resultSet.getString("events_name");
+            int totalFinancesForEvent = resultSet.getInt("totalFinancesForEvent");
+
+            System.out.println("Event ID:" + eventsID + " Project name: " + projectName + " Event name: " + eventName + " Budget for Event:" + totalFinancesForEvent);
+        }
     }
+
 
     public static void createBill() throws SQLException {
         Scanner scan = new Scanner(System.in);
@@ -132,7 +163,20 @@ public class DBconnection {
 
     }
 
-    public static void selectBills() {
+    public static void selectBills() throws SQLException {
+        Connection conn = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\User\\IdeaProjects\\ccapp\\ccapp.db");
+        Statement statement = conn.createStatement();
+        String sqlStatement = "SELECT * FROM bills";
+        ResultSet resultSet = statement.executeQuery(sqlStatement);
 
+        while ( resultSet.next() ) {
+            //String billsID = resultSet.getString("bill_id");
+            String billNumber = resultSet.getString("bill_number");
+            String company = resultSet.getString("company");
+            int sum = resultSet.getInt("sum");
+            String category = resultSet.getString("category");
+
+            System.out.println("Bill number:" + billNumber + " Company: " + company + " Event name: " + company + " Bills sum:" + sum);
+        }
     }
 }
