@@ -33,7 +33,7 @@ public class DBconnection {
                 Statement statement = conn.createStatement();
                 String sqlStatement =
                         "CREATE TABLE IF NOT EXISTS categories"+
-                                " (category_id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                                "(category_id INTEGER PRIMARY KEY AUTOINCREMENT," +
                                 "category_name INTEGER NOT NULL)";
                 statement.execute(sqlStatement);
 
