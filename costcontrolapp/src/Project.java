@@ -1,14 +1,20 @@
-public class projects extends DBconnection {
+public class Project extends DBconnection {
     protected  int projectID;
     protected String projectName;
     protected String description;
     protected int totalFinances;
 
-    public projects(int projectID, String projectName, String description, int totalFinances) {
+    public Project(int projectID, String projectName, String description, int totalFinances) {
         this.projectID = projectID;
         this.projectName = projectName;
         this.description = description;
         this.totalFinances = totalFinances;
+    }
+
+    public Project() {
+        this.projectName = "";
+        this.description = "";
+        this.totalFinances = 0;
     }
 
     public int getProjectID() {

@@ -1,7 +1,10 @@
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+
+        DBconnection db = new DBconnection();
 
         //Menu for User
         Scanner scan = new Scanner(System.in);
@@ -9,7 +12,8 @@ public class Main {
             do {
                 System.out.println();
                 System.out.println("Hello in Cost Control Application! Please, select an option:");
-                System.out.println("1 - I want to see all the bills/receipts");
+                //System.out.println("1 - I want to see all the bills/receipts");
+                System.out.println("1 - I want to add a new project");
                 System.out.println("2 - I want to see all the Projects and Description");
                 System.out.println("3 - I want to see all the Events by Project name");
                 System.out.println("4 - I want to see a spent amount by year");
@@ -21,12 +25,24 @@ public class Main {
                 switch (menuEntry) {
 
                     case 1:
-                        System.out.println("1 menu option");
-                    break;
+                        try {
+                            Project project = new Project();
+                            System.out.println("Please enter the Project name:");
+                            project.setProjectName(scan.next());
+                            System.out.println("Please enter the Project description:");
+                            project.setDescription(scan.next());
+                            System.out.println("Please enter the Project total Budget:");
+                            project.setTotalFinances(scan.nextInt());
+                            db.createProject(project);
 
+                        } catch (SQLException exception) {
+                            System.out.println("An error has occurred" + exception.toString());
+                        }
+                    break;
                     default:
+
+                    }
                 }
-         }
             while (menuEntry != 0);
     }
 }

@@ -15,7 +15,7 @@ public class DBconnection {
                 System.out.println("Connected to " + databaseMetadata.getDatabaseProductName() + " " + databaseMetadata.getDatabaseProductVersion());
 
                 // CREATING A projects TABLE
-                createProject();
+                //createProject();
 
                 // INSERT ROWS in PROJECTS TABLE
                 //statement.execute("INSERT INTO projects (project_name,description, totalFinances) VALUES ('To be a MOM', 'To be a MOM is a project for moms and their children to create closer relations between them', '600')");
@@ -53,8 +53,8 @@ public class DBconnection {
     }
         //methods *6 create & select for projects, events, bills
 
-    public static void createProject() throws SQLException {
-        Scanner scan = new Scanner(System.in);
+    public void createProject(Project project) throws SQLException {
+        //Scanner scan = new Scanner(System.in);
 
         Connection conn = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\User\\IdeaProjects\\ccapp\\ccapp.db");
         Statement statement = conn.createStatement();
@@ -66,13 +66,14 @@ public class DBconnection {
                         "totalFinances INT NOT NULL)";
         statement.execute(sqlStatement);
 
-        System.out.println("Enter the Projects name: ");
+        /**System.out.println("Enter the Projects name: ");
         String projectName = scan.next();
         System.out.println("Enter the Projects description: ");
         String projectDescription = scan.next();
         System.out.println("Enter the Projects total Finances: ");
         int totalFinances = scan.nextInt();
-        statement.execute("INSERT INTO projects (project_name, description, totalFinances) VALUES ('" +  projectName + "' , '" +  projectDescription + "' , '" +  totalFinances + "')");
+         */
+        statement.execute("INSERT INTO projects (project_name, description, totalFinances) VALUES ('" +  project.getProjectName() + "' , '" +  project.getDescription() + "' , '" +  project.getTotalFinances() + "')");
 
     }
 
