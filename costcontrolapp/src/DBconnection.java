@@ -106,6 +106,15 @@ public class DBconnection {
                 "totalFinancesForEvent TEXT NOT NULL)";
         statement.execute(sqlStatement);
 
+        /** events table data
+        statement.execute("INSERT INTO events (project_event, events_name, totalFinancesForEvent) VALUES ('To be a MOM' , 'Seminar “Breastfeeding ABC”' , '130')");
+        statement.execute("INSERT INTO events (project_event, events_name, totalFinancesForEvent) VALUES ('To be a MOM' , 'MOM School' , '115')");
+        statement.execute("INSERT INTO events (project_event, events_name, totalFinancesForEvent) VALUES ('To be a MOM' , 'Workshop “Family miracles”' , '130')");
+        statement.execute("INSERT INTO events (project_event, events_name, totalFinancesForEvent) VALUES ('Hearts Melody' , 'Christmas Evening' , '575')");
+        statement.execute("INSERT INTO events (project_event, events_name, totalFinancesForEvent) VALUES ('Hearts Melody' , 'Photo exhibition “Be a Family”' , '160')");
+        statement.execute("INSERT INTO events (project_event, events_name, totalFinancesForEvent) VALUES ('Hearts Melody' , 'Event for expectant mothers “Bebīšu lietus”' , '185')");
+        */
+
         System.out.println("Enter the Project name: ");
         String projectName = scan.next();
         System.out.println("Enter the Event name: ");

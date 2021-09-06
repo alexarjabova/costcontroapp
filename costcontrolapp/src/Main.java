@@ -42,8 +42,7 @@ public class Main {
 
                     case 2:
                         try {
-                            db.selectProject
-
+                            db.selectProjects();
                         } catch (SQLException exception) {
                             System.out.println("An error has occurred" + exception.toString());
                         }
