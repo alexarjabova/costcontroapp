@@ -4,19 +4,19 @@ public class Bill extends DBconnection {
     protected String company;
     protected float sum;
     protected String projectName;
-    protected String eventsName;
+    protected String eventName;
     protected String category;
 
     public Bill() {
     }
 
-    public Bill(int billID, int billNumber, String company, float sum, String projectName, String eventsName, String category) {
+    public Bill(int billID, int billNumber, String company, float sum, String projectName, String eventName, String category) {
         this.billID = billID;
         this.billNumber = billNumber;
         this.company = company;
         this.sum = sum;
         this.projectName = projectName;
-        this.eventsName = eventsName;
+        this.eventName = eventName;
         this.category = category;
     }
 
@@ -60,12 +60,12 @@ public class Bill extends DBconnection {
         this.projectName = projectName;
     }
 
-    public String getEventsName() {
-        return eventsName;
+    public String getEventName() {
+        return eventName;
     }
 
-    public void setEventsName(String eventsName) {
-        this.eventsName = eventsName;
+    public void setEventsName(String eventName) {
+        this.eventName = eventName;
     }
 
     public String getCategory() {

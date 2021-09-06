@@ -27,7 +27,7 @@ public class DBconnection {
 
 
                 // CREATING bills TABLE
-                createBill();
+                //createBill();
 
                 // CREATING categories TABLE
                 Statement statement = conn.createStatement();
@@ -142,8 +142,8 @@ public class DBconnection {
     }
 
 
-    public static void createBill() throws SQLException {
-        Scanner scan = new Scanner(System.in);
+    public void createBill(Bill bill) throws SQLException {
+        //Scanner scan = new Scanner(System.in);
 
         Connection conn = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\User\\IdeaProjects\\costcontroapp\\costcontrolapp.db");
         Statement statement = conn.createStatement();
@@ -158,7 +158,7 @@ public class DBconnection {
                         "category TEXT NOT NULL)";
         statement.execute(sqlStatement);
 
-        System.out.println("Enter the Bill number: ");
+        /**System.out.println("Enter the Bill number: ");
         int billNumber = scan.nextInt();
         System.out.println("Enter the Companies name: ");
         String companyName = scan.next();
@@ -170,7 +170,8 @@ public class DBconnection {
         String eventName = scan.next();
         System.out.println("Enter the Category: ");
         String category = scan.next();
-        statement.execute("INSERT INTO bills (bill_number, company, sum, project, event, category) VALUES ('" +  billNumber + "' , '" +  companyName + "' , '" +  sumOfBill + "' , '" +  projectName + "' , '" +  eventName + "' , '" +  category + "')");
+         */
+        statement.execute("INSERT INTO bills (bill_number, company, sum, project, event, category) VALUES ('" +  bill.getBillNumber() + "' , '" +  bill.getCompany() + "' , '" +  bill.getSum() + "' , '" + bill.getProjectName() + "' , '" +  bill.getEventName() + "' , '" +  bill.getCategory() + "')");
 
     }
 
@@ -190,4 +191,5 @@ public class DBconnection {
             System.out.println("Bill number:" + billNumber + " Company: " + company + " Event name: " + company + " Bills sum:" + sum);
         }
     }
+
 }
