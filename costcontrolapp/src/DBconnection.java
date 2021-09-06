@@ -23,7 +23,7 @@ public class DBconnection {
 
 
                 // CREATING events TABLE
-                createEvent();
+                //createEvent();
 
 
                 // CREATING bills TABLE
@@ -38,9 +38,9 @@ public class DBconnection {
                 statement.execute(sqlStatement);
 
                 //SELECT * from
-                selectProjects();
-                selectEvents();
-                selectBills();
+                //selectProjects();
+                //selectEvents();
+                //selectBills();
 
 
             }
@@ -94,7 +94,7 @@ public class DBconnection {
 
     }
 
-    public static void createEvent() throws SQLException {
+    public static void createEvent(Event event) throws SQLException {
         Scanner scan = new Scanner(System.in);
 
         Connection conn = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\User\\IdeaProjects\\costcontroapp\\costcontrolapp.db");
@@ -125,10 +125,42 @@ public class DBconnection {
 
     }
 
-    public static void selectEvents() throws SQLException {
+    public void selectEvents() throws SQLException {
         Connection conn = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\User\\IdeaProjects\\costcontroapp\\costcontrolapp.db");
         Statement statement = conn.createStatement();
         String sqlStatement = "SELECT * FROM events";
+        ResultSet resultSet = statement.executeQuery(sqlStatement);
+
+        while ( resultSet.next() ) {
+            String eventsID = resultSet.getString("events_id");
+            String projectName = resultSet.getString("project_event");
+            String eventName = resultSet.getString("events_name");
+            int totalFinancesForEvent = resultSet.getInt("totalFinancesForEvent");
+
+            System.out.println("Event ID:" + eventsID + " Project name: " + projectName + " Event name: " + eventName + " Budget for Event:" + totalFinancesForEvent);
+        }
+    }
+
+    public static void selectEventsToBeAMom() throws SQLException {
+        Connection conn = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\User\\IdeaProjects\\costcontroapp\\costcontrolapp.db");
+        Statement statement = conn.createStatement();
+        String sqlStatement = "SELECT * FROM events where project_event = 'To be a MOM'";
+        ResultSet resultSet = statement.executeQuery(sqlStatement);
+
+        while ( resultSet.next() ) {
+            String eventsID = resultSet.getString("events_id");
+            String projectName = resultSet.getString("project_event");
+            String eventName = resultSet.getString("events_name");
+            int totalFinancesForEvent = resultSet.getInt("totalFinancesForEvent");
+
+            System.out.println("Event ID:" + eventsID + " Project name: " + projectName + " Event name: " + eventName + " Budget for Event:" + totalFinancesForEvent);
+        }
+    }
+
+    public static void selectEventsHeartsMelody() throws SQLException {
+        Connection conn = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\User\\IdeaProjects\\costcontroapp\\costcontrolapp.db");
+        Statement statement = conn.createStatement();
+        String sqlStatement = "SELECT * FROM events where project_event = 'Hearts Melody' ";
         ResultSet resultSet = statement.executeQuery(sqlStatement);
 
         while ( resultSet.next() ) {
@@ -192,4 +224,4 @@ public class DBconnection {
         }
     }
 
-}
+    }

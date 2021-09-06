@@ -52,7 +52,31 @@ public class Main {
 
                     case 3:
                         try {
-                            db.selectEvents();
+                            db.selectEventsToBeAMom();
+                        } catch (SQLException exception) {
+                            System.out.println("An error has occurred" + exception.toString());
+                        }
+                        break;
+
+                    case 4:
+                        try {
+                           //Event event = new Event("To be a MOM", "Easter", 200);
+                           //db.createEvent(event);
+
+                           //if (event.getProjectName().equalsIgnoreCase("To be a MOM")) {
+                               //System.out.println(event.toString());}
+
+                            System.out.println("Please enter the Project name to find all Events:");
+                            String projectNamebyUser = scan.nextLine();
+
+                            if (projectNamebyUser.equalsIgnoreCase("To be a mom")) {
+                                db.selectEventsToBeAMom();
+                            } else if (projectNamebyUser.equals("Hearts Melody")) {
+                                db.selectEventsHeartsMelody();
+                            } else {
+                                System.out.println("Check the Project name, please!");
+                            }
+
                         } catch (SQLException exception) {
                             System.out.println("An error has occurred" + exception.toString());
                         }

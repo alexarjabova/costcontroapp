@@ -7,11 +7,21 @@ public class Event extends DBconnection{
     public Event() {
     }
 
-    public Event(int eventID, String projectName, String eventName, int totalFinancesForEvent) {
+    public Event(String projectName, String eventName, int totalFinancesForEvent) {
         this.eventID = eventID;
         this.projectName = projectName;
         this.eventName = eventName;
         this.totalFinancesForEvent = totalFinancesForEvent;
+    }
+
+    @Override
+    public String toString() {
+        return "Event{" +
+                "eventID=" + eventID +
+                ", projectName='" + projectName + '\'' +
+                ", eventName='" + eventName + '\'' +
+                ", totalFinancesForEvent=" + totalFinancesForEvent +
+                '}';
     }
 
     public int getEventID() {
