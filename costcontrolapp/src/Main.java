@@ -48,6 +48,15 @@ public class Main {
                         }
                         break;
 
+                    case 3:
+                        try {
+                            db.selectEvents();
+                        } catch (SQLException exception) {
+                            System.out.println("An error has occurred" + exception.toString());
+                        }
+                        break;
+
+
                     default:
 
                     }
