@@ -78,7 +78,7 @@ public class DBconnection {
     }
 
     public static void selectProjects() throws SQLException {
-        Connection conn = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\User\\IdeaProjects\\ccapp\\ccapp.db");
+        Connection conn = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\User\\IdeaProjects\\costcontroapp\\costcontrolapp.db");
         Statement statement = conn.createStatement();
         String sqlStatement = "SELECT * FROM projects";
         ResultSet resultSet = statement.executeQuery(sqlStatement);
@@ -97,7 +97,7 @@ public class DBconnection {
     public static void createEvent() throws SQLException {
         Scanner scan = new Scanner(System.in);
 
-        Connection conn = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\User\\IdeaProjects\\ccapp\\ccapp.db");
+        Connection conn = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\User\\IdeaProjects\\costcontroapp\\costcontrolapp.db");
         Statement statement = conn.createStatement();
         String sqlStatement = "CREATE TABLE IF NOT EXISTS events" +
                 " (events_id INTEGER PRIMARY KEY AUTOINCREMENT," +
@@ -117,7 +117,7 @@ public class DBconnection {
     }
 
     public static void selectEvents() throws SQLException {
-        Connection conn = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\User\\IdeaProjects\\ccapp\\ccapp.db");
+        Connection conn = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\User\\IdeaProjects\\costcontroapp\\costcontrolapp.db");
         Statement statement = conn.createStatement();
         String sqlStatement = "SELECT * FROM events";
         ResultSet resultSet = statement.executeQuery(sqlStatement);
@@ -136,7 +136,7 @@ public class DBconnection {
     public static void createBill() throws SQLException {
         Scanner scan = new Scanner(System.in);
 
-        Connection conn = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\User\\IdeaProjects\\ccapp\\ccapp.db");
+        Connection conn = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\User\\IdeaProjects\\costcontroapp\\costcontrolapp.db");
         Statement statement = conn.createStatement();
         String sqlStatement =
                 "CREATE TABLE IF NOT EXISTS bills"+
@@ -166,7 +166,7 @@ public class DBconnection {
     }
 
     public static void selectBills() throws SQLException {
-        Connection conn = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\User\\IdeaProjects\\ccapp\\ccapp.db");
+        Connection conn = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\User\\IdeaProjects\\costcontroapp\\costcontrolapp.db");
         Statement statement = conn.createStatement();
         String sqlStatement = "SELECT * FROM bills";
         ResultSet resultSet = statement.executeQuery(sqlStatement);

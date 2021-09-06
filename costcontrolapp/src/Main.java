@@ -39,6 +39,16 @@ public class Main {
                             System.out.println("An error has occurred" + exception.toString());
                         }
                     break;
+
+                    case 2:
+                        try {
+                            db.selectProject
+
+                        } catch (SQLException exception) {
+                            System.out.println("An error has occurred" + exception.toString());
+                        }
+                        break;
+
                     default:
 
                     }
