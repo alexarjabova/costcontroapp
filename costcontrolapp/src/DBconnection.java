@@ -56,7 +56,7 @@ public class DBconnection {
     public void createProject(Project project) throws SQLException {
         //Scanner scan = new Scanner(System.in);
 
-        Connection conn = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\User\\IdeaProjects\\ccapp\\ccapp.db");
+        Connection conn = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\User\\IdeaProjects\\costcontroapp\\costcontrolapp.db");
         Statement statement = conn.createStatement();
         String sqlStatement =
                 "CREATE TABLE IF NOT EXISTS projects"+
