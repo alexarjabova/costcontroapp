@@ -220,8 +220,22 @@ public class DBconnection {
             int sum = resultSet.getInt("sum");
             String category = resultSet.getString("category");
 
-            System.out.println("Bill number:" + billNumber + " Company: " + company + " Event name: " + company + " Bills sum:" + sum);
+            System.out.println("Bill number:" + billNumber + " Company: " + company + " Event name: " + company + " Category: " + category + " Bills sum:" + sum);
         }
+    }
+
+    public void deleteBill() throws SQLException {
+        Connection conn = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\User\\IdeaProjects\\costcontroapp\\costcontrolapp.db");
+        Statement statement = conn.createStatement();
+
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Enter Bills ID to delete: ");
+        int billIDdelete = scan.nextInt();
+        scan.nextLine();
+
+        String sqlStatement = "DELETE FROM bills " +
+                " WHERE bill_id = '" + billIDdelete + "'";
+        statement.execute(sqlStatement);
     }
 
     }

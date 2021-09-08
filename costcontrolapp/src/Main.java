@@ -12,13 +12,14 @@ public class Main {
             do {
                 System.out.println();
                 System.out.println("Hello in Cost Control Application! Please, select an option:");
-                //System.out.println("1 - I want to see all the bills/receipts");
                 System.out.println("1 - I want to add a new project");
                 System.out.println("2 - I want to see all the Projects and Description");
-                System.out.println("3 - I want to see all the Events by Project name");
-                //System.out.println("4 - I want to see a spent amount by year");
+                //System.out.println("3 - I want to see all the Events by Project name"); // nav gatavs
+                System.out.println("4 - I want to see all the Events by Project name");
                 System.out.println("5 - I want to add a new bill");
-                //System.out.println("6 - I want to delete a bill"); //using bill_number
+                System.out.println("6 - I want to see all the bills/receipts");
+                System.out.println("7 - I want to delete a bill"); //using bill_number
+                System.out.println("8 - How much money is spent at all?");
                 System.out.println("0 - Exit, please.");
                 menuEntry = scan.nextInt();
                 scan.nextLine();
@@ -69,9 +70,11 @@ public class Main {
                             System.out.println("Please enter the Project name to find all Events:");
                             String projectNamebyUser = scan.nextLine();
 
+                            //assertTrue(src.matches("(?i)." + dest + ".")); ARTJOMS! SOS
+
                             if (projectNamebyUser.equalsIgnoreCase("To be a mom")) {
                                 db.selectEventsToBeAMom();
-                            } else if (projectNamebyUser.equals("Hearts Melody")) {
+                            } else if (projectNamebyUser.equalsIgnoreCase("Hearts Melody")) {
                                 db.selectEventsHeartsMelody();
                             } else {
                                 System.out.println("Check the Project name, please!");
@@ -106,6 +109,30 @@ public class Main {
                         }
                         break;
 
+                    case 6:
+                        try {
+                            db.selectBills();
+                        } catch (SQLException exception) {
+                            System.out.println("An error has occurred" + exception.toString());
+                        }
+                        break;
+
+                    case 7:
+                        try {
+
+                            /** System.out.println("Enter Bills ID to delete: ");
+                            int billIDdelete = scan.nextInt();
+                            scan.nextLine();
+                            db.deleteBill(); */
+                            db.deleteBill();
+                        } catch (SQLException exception) {
+                            System.out.println("An error has occurred" + exception.toString());
+                        }
+                        break;
+
+                    case 8:
+
+                        break;
 
                     default:
 
