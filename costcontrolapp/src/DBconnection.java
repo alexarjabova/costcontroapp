@@ -242,10 +242,6 @@ public class DBconnection {
         Connection conn = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\User\\IdeaProjects\\costcontroapp\\costcontrolapp.db");
         Statement statement = conn.createStatement();
 
-        //String sqlStatement="SELECT SUM (sum) AS 'TotalSpent: ' FROM bills";
-        //String s = r.getString("TotalSpent)");
-        //ResultSet resultSet = statement.execute(sqlStatement);
-
         String sqlStatement = "SELECT SUM(sum) AS totalspent FROM bills";
         PreparedStatement pst = conn.prepareStatement(sqlStatement);
         ResultSet rs = pst.executeQuery();
@@ -255,5 +251,4 @@ public class DBconnection {
 
         }
     }
-
-    }
+}
