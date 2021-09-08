@@ -125,10 +125,10 @@ public class DBconnection {
 
     }
 
-    public void selectEvents() throws SQLException {
+    public void selectEvents(String projectName) throws SQLException {
         Connection conn = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\User\\IdeaProjects\\costcontroapp\\costcontrolapp.db");
         Statement statement = conn.createStatement();
-        String sqlStatement = "SELECT * FROM events";
+        String sqlStatement = "SELECT * FROM events WHERE project_event = '" + projectName + "'";
         ResultSet resultSet = statement.executeQuery(sqlStatement);
 
         while ( resultSet.next() ) {
