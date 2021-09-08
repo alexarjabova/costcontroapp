@@ -238,4 +238,22 @@ public class DBconnection {
         statement.execute(sqlStatement);
     }
 
+    public static void sumOfBills() throws SQLException {
+        Connection conn = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\User\\IdeaProjects\\costcontroapp\\costcontrolapp.db");
+        Statement statement = conn.createStatement();
+
+        //String sqlStatement="SELECT SUM (sum) AS 'TotalSpent: ' FROM bills";
+        //String s = r.getString("TotalSpent)");
+        //ResultSet resultSet = statement.execute(sqlStatement);
+
+        String sqlStatement = "SELECT SUM(sum) AS totalspent FROM bills";
+        PreparedStatement pst = conn.prepareStatement(sqlStatement);
+        ResultSet rs = pst.executeQuery();
+        if (rs.next()) {
+            String SUM = rs.getString("totalspent");
+            System.out.println("Total amount of bills: " + SUM + " EUR");
+
+        }
+    }
+
     }
