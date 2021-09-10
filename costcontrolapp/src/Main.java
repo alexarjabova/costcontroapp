@@ -36,7 +36,6 @@ public class Main {
                             project.setTotalFinances(scan.nextInt());
                             scan.nextLine();
                             db.createProject(project);
-
                         } catch (SQLException exception) {
                             System.out.println("An error has occurred" + exception.toString());
                         }
@@ -52,20 +51,7 @@ public class Main {
 
                     case 3:
                         try {
-
-                            //String projectNamebyUser = scan.nextLine();
                             db.selectEvents();
-
-                            /**
-                            if (projectNamebyUser.equalsIgnoreCase("To be a mom")) {
-                                db.selectEventsToBeAMom();
-                            } else if (projectNamebyUser.equalsIgnoreCase("Hearts Melody")) {
-                                db.selectEventsHeartsMelody();
-                            } else {
-                                System.out.println("Check the Project name, please!");
-                            }
-                             */
-
                         } catch (SQLException exception) {
                             System.out.println("An error has occurred" + exception.toString());
                         }
@@ -89,7 +75,6 @@ public class Main {
                             System.out.println("Please enter the Bills category:");
                             bill.setCategory(scan.nextLine());
                             db.createBill(bill);
-
                         } catch (SQLException exception) {
                             System.out.println("An error has occurred" + exception.toString());
                         }
@@ -116,7 +101,6 @@ public class Main {
                         break;
 
                     default:
-
                     }
                 }
             while (menuEntry != 0);
