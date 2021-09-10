@@ -52,11 +52,11 @@ public class Main {
 
                     case 3:
                         try {
-                            System.out.println("Please enter the Project name to find all Events:");
-                            String projectNamebyUser = scan.nextLine();
 
-                            //assertTrue(src.matches("(?i)." + dest + ".")); ARTJOMS! SOS
+                            //String projectNamebyUser = scan.nextLine();
+                            db.selectEvents();
 
+                            /**
                             if (projectNamebyUser.equalsIgnoreCase("To be a mom")) {
                                 db.selectEventsToBeAMom();
                             } else if (projectNamebyUser.equalsIgnoreCase("Hearts Melody")) {
@@ -64,6 +64,7 @@ public class Main {
                             } else {
                                 System.out.println("Check the Project name, please!");
                             }
+                             */
 
                         } catch (SQLException exception) {
                             System.out.println("An error has occurred" + exception.toString());
