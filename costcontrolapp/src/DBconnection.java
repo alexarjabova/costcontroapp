@@ -14,20 +14,9 @@ public class DBconnection {
                 DatabaseMetaData databaseMetadata = (DatabaseMetaData) conn.getMetaData();
                 System.out.println("Connected to " + databaseMetadata.getDatabaseProductName() + " " + databaseMetadata.getDatabaseProductVersion());
 
-                // CREATING A projects TABLE
-                //createProject();
-
                 // INSERT ROWS in PROJECTS TABLE
                 //statement.execute("INSERT INTO projects (project_name,description, totalFinances) VALUES ('To be a MOM', 'To be a MOM is a project for moms and their children to create closer relations between them', '600')");
                 //statement.execute("INSERT INTO projects (project_name,description, totalFinances) VALUES ('Hearts Melody', 'Hearts Melody is a project for expectant mothers and families with children', '400')");
-
-
-                // CREATING events TABLE
-                //createEvent();
-
-
-                // CREATING bills TABLE
-                //createBill();
 
                 // CREATING categories TABLE
                 Statement statement = conn.createStatement();
@@ -37,12 +26,6 @@ public class DBconnection {
                                 "category_name TEXT NOT NULL)";
                 statement.execute(sqlStatement);
 
-                //SELECT * from
-                //selectProjects();
-                //selectEvents();
-                //selectBills();
-
-
             }
 
         } catch( SQLException exception ) {
@@ -50,7 +33,6 @@ public class DBconnection {
         }
     }
     public void createProject(Project project) throws SQLException {
-        //Scanner scan = new Scanner(System.in);
 
         Connection conn = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\User\\IdeaProjects\\costcontroapp\\costcontrolapp.db");
         Statement statement = conn.createStatement();
@@ -62,15 +44,7 @@ public class DBconnection {
                         "totalFinances INT NOT NULL)";
         statement.execute(sqlStatement);
 
-        /**System.out.println("Enter the Projects name: ");
-        String projectName = scan.next();
-        System.out.println("Enter the Projects description: ");
-        String projectDescription = scan.next();
-        System.out.println("Enter the Projects total Finances: ");
-        int totalFinances = scan.nextInt();
-         */
         statement.execute("INSERT INTO projects (project_name, description, totalFinances) VALUES ('" +  project.getProjectName() + "' , '" +  project.getDescription() + "' , '" +  project.getTotalFinances() + "')");
-
     }
 
     public static void selectProjects() throws SQLException {
@@ -87,7 +61,6 @@ public class DBconnection {
 
             System.out.println("Project ID:" + projectID + " Project name: " + projectName + " Description: " + description + " Budget:" + totalFinances);
         }
-
     }
 
     public static void createEvent(Event event) throws SQLException {
@@ -118,7 +91,6 @@ public class DBconnection {
         System.out.println("Enter the total Finances for Event: ");
         int totalFinancesForEvent = scan.nextInt();
         statement.execute("INSERT INTO events (project_event, events_name, totalFinancesForEvent) VALUES ('" +  projectName + "' , '" +  eventName + "' , '" +  totalFinancesForEvent + "')");
-
     }
 
     public void selectEvents() throws SQLException {
@@ -142,7 +114,6 @@ public class DBconnection {
     }
 
     public void createBill(Bill bill) throws SQLException {
-        //Scanner scan = new Scanner(System.in);
 
         Connection conn = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\User\\IdeaProjects\\costcontroapp\\costcontrolapp.db");
         Statement statement = conn.createStatement();
@@ -157,21 +128,7 @@ public class DBconnection {
                         "category TEXT NOT NULL)";
         statement.execute(sqlStatement);
 
-        /**System.out.println("Enter the Bill number: ");
-        int billNumber = scan.nextInt();
-        System.out.println("Enter the Companies name: ");
-        String companyName = scan.next();
-        System.out.println("Enter the total sum on Bil: ");
-        float sumOfBill = scan.nextFloat();
-        System.out.println("Enter the Projects name: ");
-        String projectName = scan.next();
-        System.out.println("Enter the Event name: ");
-        String eventName = scan.next();
-        System.out.println("Enter the Category: ");
-        String category = scan.next();
-         */
         statement.execute("INSERT INTO bills (bill_number, company, sum, project, event, category) VALUES ('" +  bill.getBillNumber() + "' , '" +  bill.getCompany() + "' , '" +  bill.getSum() + "' , '" + bill.getProjectName() + "' , '" +  bill.getEventName() + "' , '" +  bill.getCategory() + "')");
-
     }
 
     public static void selectBills() throws SQLException {
